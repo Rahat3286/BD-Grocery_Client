@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { getDatabaseCart, removeFromDatabaseCart, processOrder } from '../../utilities/databaseManager';
-import fakeData from '../../fakeData';
 import OrderedItem from '../OrderedItem/OrderedItem';
 import Cart from '../Cart/Cart';
 import happyImage from '../../images/giphy.gif';
@@ -28,12 +27,15 @@ const Order = () => {
         const savedCart = getDatabaseCart();
         const productKeys = Object.keys(savedCart);
 
-        const cartProducts = productKeys.map(key => {
-            const product = fakeData.find(pd => pd.key === key);
-            product.quantity = savedCart[key];
-            return product;
-        });
-        setCart(cartProducts);
+        fetch('http://localhost:5000/productsByKeys', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(productKeys)
+        })
+            .then(res => res.json())
+            .then(data => setCart(data));
     }, []);
 
     let thankyou;
@@ -43,12 +45,12 @@ const Order = () => {
     return (
         <div className="container">
             <h1 style={{ color: 'rgb(54,57,88)' }} className="col-md-12 mb-5">Checkout</h1>
-                <div className="col-md-12 d-flex justify-content-between border-bottom">
+            <div className="col-md-12 d-flex justify-content-between border-bottom">
                 <div className="col-md-3"><p><b>Description</b></p></div>
                 <div className="col-md-3"><p><b>Quantity</b></p></div>
                 <div className="col-md-3"><p><b>Price</b></p></div>
                 <div className="col-md-3"><FontAwesomeIcon icon={faTrash} /></div>
-                </div>
+            </div>
             {
                 cart.map(pd => <OrderedItem
                     key={pd.key}
