@@ -35,7 +35,7 @@ const Checkout = () => {
 
   return (
     <div className="container d-flex justify-content-center text-center">
-      <form className="ship-form" onSubmit={handleSubmit(onSubmit)}>
+      <form className="checkout-form" onSubmit={handleSubmit(onSubmit)}>
         <input name="name" defaultValue={loggedInUser.name} ref={register({ required: true })} placeholder="Your Name" />
         {errors.name && <span className="error">Name is required</span>}
 

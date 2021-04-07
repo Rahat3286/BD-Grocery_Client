@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
+import './Admin.css';
 
 const Admin = () => {
     const { register, handleSubmit, watch, errors } = useForm();
@@ -38,26 +39,48 @@ const Admin = () => {
             },
             body: JSON.stringify(productData)
         })
-        .then(res => console.log('server side response'))
+            .then(res => res.json())
+            .then(data => {
+                if (data) {
+                    alert('Your Product has been added successfully')
+                }
+            })
+
     }
 
     return (
         <div className="container">
-            <form className="" action="" onSubmit={handleSubmit(onSubmit)}>
-                <input className="form-control col-md-5" name="title" defaultValue="" ref={register} />
-                <br />
-                <input className="form-control col-md-5" name="description" defaultValue="" ref={register} />
-                <br />
-                <input className="form-control col-md-5" name="price" defaultValue="" ref={register} />
-                <br />
-                <input className="form-control col-md-5" name="weight" defaultValue="" ref={register} />
-                <br />
-                <input className="form-control col-md-5" name="key" defaultValue="" ref={register} />
-                <br />
-                <input className="form-control col-md-5" name="imgUrl" type="file" onChange={handleImageUpload} />
-                <br />
-                <button className="btn btn-success" type="submit">Save</button>
-            </form>
+            <div className="text-center mb-5" style={{
+                color: 'rgb(62, 45, 116)', fontWeight:'bold',fontSize:'35px' }}><p>Admin</p></div>
+            <div className=" d-flex justify-content-center text-center">
+                <form className="" action="" onSubmit={handleSubmit(onSubmit)}>
+                    <label className="col-form-label"><b>Product Name :</b></label>
+                    <input className="form-control " name="title" placeholder="Enter product name" defaultValue="" ref={register({ required: true })} />
+                    {errors.title && <span className="error">Name is required</span>}
+                    <br />
+                    <label className="col-form-label"><b>Product Description :</b></label>
+                    <input className="form-control" name="description" placeholder="Enter product Description" defaultValue="" ref={register({ required: true })} />
+                    {errors.description && <span className="error">Description is required</span>}
+                    <br />
+                    <label className="col-form-label"><b>Product Price :</b></label>
+                    <input className="form-control" name="price" placeholder="Enter product price" defaultValue="" ref={register({ required: true })} />
+                    {errors.price && <span className="error">Price is required</span>}
+                    <br />
+                    <label className="col-form-label"><b>Product Weight :</b></label>
+                    <input className="form-control" name="weight" placeholder="Enter product weight" defaultValue="" ref={register({ required: true })} />
+                    {errors.weight && <span className="error">Weight is required</span>}
+                    <br />
+                    <label className="col-form-label"><b>Product No :</b></label>
+                    <input className="form-control" name="key" defaultValue="" placeholder="Enter product No." ref={register({ required: true })} />
+                    {errors.key && <span className="error">**Product No. is required to show your products on UI**</span>}
+                    <br />
+                    <label className="col-form-label"><b>Upload Product Image :</b></label>
+                    <input className="form-control" name="imgUrl" placeholder="Upload Image" type="file" onChange={handleImageUpload} />
+                    {errors.imgUrl && <span className="error">Image is required</span>}
+                    <br />
+                    <button className="btn btn-success" type="submit">Add Product</button>
+                </form>
+            </div>
         </div>
     );
 };
@@ -66,8 +89,49 @@ export default Admin;
 
 
 
-
 // working code
+{/* <form className="" action="" onSubmit={handleSubmit(onSubmit)}>
+    <input className="form-control " name="title" defaultValue="" ref={register({ required: true })} />
+    {errors.title && <span className="error">Title is required</span>}
+    <input className="form-control" name="description" defaultValue="" ref={register({ required: true })} />
+    {errors.description && <span className="error">Description is required</span>}
+    <input className="form-control" name="price" defaultValue="" ref={register({ required: true })} />
+    {errors.price && <span className="error">Price is required</span>}
+    <input className="form-control" name="weight" defaultValue="" ref={register({ required: true })} />
+    {errors.weight && <span className="error">Product Weight is required</span>}
+    <input className="form-control" name="key" defaultValue="" ref={register({ required: true })} />
+    {errors.key && <span className="error">Product No. is required to show your products on UI</span>}
+    <input className="form-control" name="imgUrl" type="file" onChange={handleImageUpload} />
+    {errors.imgUrl && <span className="error">Image is required</span>}
+    <button className="btn btn-success" type="submit">Save</button>
+</form> */}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// design 1
 {/* <div className="row mb-5 justify-content-center">
                 <div className="col-md-5">
                     <form action="">
@@ -97,96 +161,3 @@ export default Admin;
             <div className="container text-right">
                 <button className="btn btn-success" onClick={handleAddProduct}>Save</button>
             </div> */}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// first code
-
-
-
-{/* <form action="">
-    <p><span>Name: </span><input type="text" /></p>
-    <p><span>Price: </span><input type="text" /></p>
-    <p><span>Quantity: </span><input type="text" /></p>
-    <p><span>Product Image: </span><input type="file" /></p>
-    <button className="btn btn-primary" onClick={handleAddProduct}>Add Product</button>
-</form> */}
-
-
-
-
-
-
-
-
-
-
-// second code
-
-// const { register, handleSubmit, watch, erros } = useForm();
-// const [imageURL, setIMageURL] = useState(null);
-
-// const onSubmit = data => {
-//     const eventData = {
-//         name: data.name,
-//         imageURL: imageURL
-//     }
-//     console.log(data)
-// };
-
-// const handleImageUpload = event => {
-//     console.log(event.target.files[0]);
-//     const imageData = new FormData();
-//     imageData.set('key', '32dbb43d356182fea99f3eb509f510cb');
-//     imageData.append('image', event.target.files[0]);
-
-//     axios.post('https://api.imgbb.com/1/upload', imageData)
-//         .then(function (response) {
-//             setIMageURL(response.data.data.display_url);
-//         })
-//         .catch(function (error) {
-//             console.log(error)
-//         })
-// }
-
-
-
-
-
-
-
-
-
-
-
-
-{/* <form onSubmit={handleSubmit(onSubmit)}>
-    <input name="name" defaultValue="New exciting Event" ref={register} />
-    <br />
-    <input name="exampleRequired" type="file" onChange={handleImageUpload} />
-    <br />
-    <input className="btn btn-primary" type="submit" />
-</form> */}
