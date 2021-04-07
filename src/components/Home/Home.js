@@ -7,12 +7,12 @@ import { Link } from 'react-router-dom';
 import { CircularProgress } from '@material-ui/core';
 
 const Home = () => {
-    
+
     const [products, setProducts] = useState([]);
     const [cart, setCart] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/products')
+        fetch('https://immense-mountain-66845.herokuapp.com/products')
             .then(res => res.json())
             .then(data => setProducts(data))
     }, [])
@@ -20,7 +20,7 @@ const Home = () => {
     useEffect(() => {
         const savedCart = getDatabaseCart();
         const productKeys = Object.keys(savedCart);
-        fetch('http://localhost:5000/productsByKeys', {
+        fetch('https://immense-mountain-66845.herokuapp.com/productsByKeys', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -54,7 +54,7 @@ const Home = () => {
         <div className="container d-flex justify-content-center">
             <div className="row">
                 {
-                    products.length === 0 && <CircularProgress/>
+                    products.length === 0 && <CircularProgress />
                 }
                 {
                     products.map(pd => <Product

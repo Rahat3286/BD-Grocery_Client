@@ -13,7 +13,7 @@ const Checkout = () => {
     const savedCart = getDatabaseCart();
     const orderDetails = { ...loggedInUser, products: savedCart, checkout: data, orderTime: new Date() };
 
-    fetch('http://localhost:5000/addOrder', {
+    fetch('https://immense-mountain-66845.herokuapp.com/addOrder', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -44,7 +44,7 @@ const Checkout = () => {
 
         <input name="phone" ref={register({ required: true })} placeholder="Your Phone Number" />
         {errors.phone && <span className="error">Phone Number is required</span>}
-        <br/>
+        <br />
         <button className="btn btn-success mt-4">Place Order</button>
       </form>
     </div>

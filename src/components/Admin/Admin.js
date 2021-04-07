@@ -32,7 +32,7 @@ const Admin = () => {
             key: data.key
         }
         console.log(data)
-        fetch('http://localhost:5000/addProduct', {
+        fetch('https://immense-mountain-66845.herokuapp.com/addProduct', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -51,7 +51,8 @@ const Admin = () => {
     return (
         <div className="container">
             <div className="text-center mb-5" style={{
-                color: 'rgb(62, 45, 116)', fontWeight:'bold',fontSize:'35px' }}><p>Admin</p></div>
+                color: 'rgb(62, 45, 116)', fontWeight: 'bold', fontSize: '35px'
+            }}><p>Admin</p></div>
             <div className=" d-flex justify-content-center text-center">
                 <form className="" action="" onSubmit={handleSubmit(onSubmit)}>
                     <label className="col-form-label"><b>Product No :</b></label>
