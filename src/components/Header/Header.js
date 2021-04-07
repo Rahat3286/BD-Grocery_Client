@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import logo from '../../images/logo.png';
 import { Link } from 'react-router-dom';
 import { useContext } from 'react';
 import { UserContext } from '../../App';

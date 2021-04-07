@@ -44,7 +44,7 @@ const Checkout = () => {
 
         <input name="phone" ref={register({ required: true })} placeholder="Your Phone Number" />
         {errors.phone && <span className="error">Phone Number is required</span>}
-
+        <br/>
         <button className="btn btn-success mt-4">Place Order</button>
       </form>
     </div>

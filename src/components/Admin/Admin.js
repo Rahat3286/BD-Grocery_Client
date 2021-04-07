@@ -54,6 +54,14 @@ const Admin = () => {
                 color: 'rgb(62, 45, 116)', fontWeight:'bold',fontSize:'35px' }}><p>Admin</p></div>
             <div className=" d-flex justify-content-center text-center">
                 <form className="" action="" onSubmit={handleSubmit(onSubmit)}>
+                    <label className="col-form-label"><b>Product No :</b></label>
+                    <input className="form-control" name="key" defaultValue="" placeholder="Enter product No." ref={register({ required: true })} />
+                    {errors.key && <span className="error">**Product No. is required to show your products on UI**</span>}
+                    <br />
+                    <label className="col-form-label"><b>Upload Product Image :</b></label>
+                    <input className="form-control" name="imgUrl" placeholder="Upload Image" type="file" onChange={handleImageUpload} ref={register({ required: true })} />
+                    {errors.imgUrl && <span className="error">Image is required</span>}
+                    <br />
                     <label className="col-form-label"><b>Product Name :</b></label>
                     <input className="form-control " name="title" placeholder="Enter product name" defaultValue="" ref={register({ required: true })} />
                     {errors.title && <span className="error">Name is required</span>}
@@ -62,21 +70,13 @@ const Admin = () => {
                     <input className="form-control" name="description" placeholder="Enter product Description" defaultValue="" ref={register({ required: true })} />
                     {errors.description && <span className="error">Description is required</span>}
                     <br />
-                    <label className="col-form-label"><b>Product Price :</b></label>
+                    <label className="col-form-label"><b>Product Price ($):</b></label>
                     <input className="form-control" name="price" placeholder="Enter product price" defaultValue="" ref={register({ required: true })} />
                     {errors.price && <span className="error">Price is required</span>}
                     <br />
                     <label className="col-form-label"><b>Product Weight :</b></label>
                     <input className="form-control" name="weight" placeholder="Enter product weight" defaultValue="" ref={register({ required: true })} />
                     {errors.weight && <span className="error">Weight is required</span>}
-                    <br />
-                    <label className="col-form-label"><b>Product No :</b></label>
-                    <input className="form-control" name="key" defaultValue="" placeholder="Enter product No." ref={register({ required: true })} />
-                    {errors.key && <span className="error">**Product No. is required to show your products on UI**</span>}
-                    <br />
-                    <label className="col-form-label"><b>Upload Product Image :</b></label>
-                    <input className="form-control" name="imgUrl" placeholder="Upload Image" type="file" onChange={handleImageUpload} ref={register({ required: true })} />
-                    {errors.imgUrl && <span className="error">Image is required</span>}
                     <br />
                     <button className="btn btn-success" type="submit">Add Product</button>
                 </form>
