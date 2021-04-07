@@ -25,7 +25,6 @@ const Header = () => {
                             <span className="btn btn-primary">Log In</span>
                         
                     }</Link></li>
-                    {/* <li><button onClick={() => setLoggedInUser({})}>Log Out</button></li> */}
                 </ul>
             </div>
         </nav>
@@ -33,13 +32,3 @@ const Header = () => {
 };
 
 export default Header;
-
-{/* <div className="header">
-    {/* <img src={logo} alt=""/>
-    <nav>
-        <Link to="/shop">Shop</Link>
-        <Link to="/review">Order Review</Link>
-        <Link to="/inventory">Manage Inventory</Link>
-        <button onClick={() => setLoggedInUser({})}>Sign out</button>
-    </nav>
-</div> */}
