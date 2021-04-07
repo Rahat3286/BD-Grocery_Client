@@ -62,10 +62,3 @@ const Order = () => {
 };
 
 export default Order;
-
-{/* <div className="col-md-12 d-flex justify-content-between border-bottom">
-    <div className="col-md-3"><h4>Description</h4></div>
-    <div className="col-md-3"><h4>Quantity</h4></div>
-    <div className="col-md-3"><h4>Price</h4></div>
-    <div className="col-md-3"><FontAwesomeIcon icon={faTrash} /></div>
-</div> */}

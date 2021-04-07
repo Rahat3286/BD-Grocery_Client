@@ -75,7 +75,7 @@ const Admin = () => {
                     {errors.key && <span className="error">**Product No. is required to show your products on UI**</span>}
                     <br />
                     <label className="col-form-label"><b>Upload Product Image :</b></label>
-                    <input className="form-control" name="imgUrl" placeholder="Upload Image" type="file" onChange={handleImageUpload} />
+                    <input className="form-control" name="imgUrl" placeholder="Upload Image" type="file" onChange={handleImageUpload} ref={register({ required: true })} />
                     {errors.imgUrl && <span className="error">Image is required</span>}
                     <br />
                     <button className="btn btn-success" type="submit">Add Product</button>
@@ -87,77 +87,3 @@ const Admin = () => {
 
 export default Admin;
 
-
-
-// working code
-{/* <form className="" action="" onSubmit={handleSubmit(onSubmit)}>
-    <input className="form-control " name="title" defaultValue="" ref={register({ required: true })} />
-    {errors.title && <span className="error">Title is required</span>}
-    <input className="form-control" name="description" defaultValue="" ref={register({ required: true })} />
-    {errors.description && <span className="error">Description is required</span>}
-    <input className="form-control" name="price" defaultValue="" ref={register({ required: true })} />
-    {errors.price && <span className="error">Price is required</span>}
-    <input className="form-control" name="weight" defaultValue="" ref={register({ required: true })} />
-    {errors.weight && <span className="error">Product Weight is required</span>}
-    <input className="form-control" name="key" defaultValue="" ref={register({ required: true })} />
-    {errors.key && <span className="error">Product No. is required to show your products on UI</span>}
-    <input className="form-control" name="imgUrl" type="file" onChange={handleImageUpload} />
-    {errors.imgUrl && <span className="error">Image is required</span>}
-    <button className="btn btn-success" type="submit">Save</button>
-</form> */}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// design 1
-{/* <div className="row mb-5 justify-content-center">
-                <div className="col-md-5">
-                    <form action="">
-                        <label for="" className="col-form-label"><b>Product Name</b></label>
-                        <input className="form-control" type="text" placeholder="Enter Name" name="title" aria-label="default input example" />
-                    </form>
-                </div>
-                <div className="col-md-5">
-                    <form action="/addProduct">
-                        <label for="" className="col-form-label"><b>Weight</b></label>
-                        <input className="form-control" type="text" placeholder="Enter weight with Unit" name="weight" aria-label="default input example" />
-                    </form>
-                </div>
-            </div>
-            <div className="row justify-content-center">
-                <div className="col-md-5">
-                    <label for="" className="col-form-label"><b>Add Price($)</b></label>
-                    <input className="form-control " type="text" placeholder="Enter Price" 
-                    name="price"  aria-label="default input example" />
-                </div>
-                <div className="col-md-5">
-                    <label for="" className="col-form-label"><b>Upload Image</b></label>
-                    <input className="form-control" type="file"  placeholder="Upload Image" 
-                    name="imgUrl" aria-label="default input example" />
-                </div>
-            </div>
-            <div className="container text-right">
-                <button className="btn btn-success" onClick={handleAddProduct}>Save</button>
-            </div> */}
