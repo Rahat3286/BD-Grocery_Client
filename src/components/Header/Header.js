@@ -23,7 +23,6 @@ const Header = () => {
                         
                         loggedInUser.isSignedIn ? <img style={{ height: '20px', width: '20px' }} src={loggedInUser.photo} alt="" /> :
                             <span className="btn btn-primary">Log In</span>
-                        
                     }</Link></li>
                 </ul>
             </div>
