@@ -20,7 +20,6 @@ const Header = () => {
                     <li className="nav-item"><Link to="/order" className="nav-link">Order</Link></li>
                     <li className="nav-item"><Link to="/admin" className="nav-link">Admin</Link></li>
                     <li className="nav-item"><Link to="/login" className="nav-link">{
-                        
                         loggedInUser.isSignedIn ? <img style={{ height: '20px', width: '20px' }} src={loggedInUser.photo} alt="" /> :
                             <span className="btn btn-primary">Log In</span>
                     }</Link></li>
