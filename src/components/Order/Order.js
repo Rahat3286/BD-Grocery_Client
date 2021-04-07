@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { getDatabaseCart, removeFromDatabaseCart, processOrder } from '../../utilities/databaseManager';
 import OrderedItem from '../OrderedItem/OrderedItem';
 import Cart from '../Cart/Cart';
-import happyImage from '../../images/giphy.gif';
 import { useHistory } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
@@ -38,10 +37,6 @@ const Order = () => {
             .then(data => setCart(data));
     }, []);
 
-    let thankyou;
-    if (orderPlaced) {
-        thankyou = <img src={happyImage} alt="" />
-    }
     return (
         <div className="container">
             <h1 style={{ color: 'rgb(54,57,88)' }} className="col-md-12 mb-5">Checkout</h1>

@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 const Product = (props) => {
     console.log(props);
-    const { title, description, weight, imgUrl, price, key } = props.product;
+    const { title, description, weight, imgUrl, price, key,id } = props.product;
     // const { img, name, seller, stock, tile, description, weight, imgUrl, price, key} = props.product;
     return (
         <div className="col-md-4 d-flex justify-content-center mb-3">

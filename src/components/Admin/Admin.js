@@ -3,23 +3,74 @@ import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 
 const Admin = () => {
+    const { register, handleSubmit, watch, errors } = useForm();
+    const [imgURL, setImageURL] = useState(null);
 
-    const handleAddProduct = () => {
-        const product ={};
+    const handleImageUpload = event => {
+        console.log(event.target.files[0])
+        const imageData = new FormData();
+        imageData.set('key', '32dbb43d356182fea99f3eb509f510cb');
+        imageData.append('image', event.target.files[0])
+
+        axios.post('https://api.imgbb.com/1/upload', imageData)
+            .then(function (response) {
+                setImageURL(response.data.data.display_url);
+            })
+            .catch(function (error) {
+                console.log(error);
+            })
+    }
+
+    const onSubmit = data => {
+        const productData = {
+            title: data.title,
+            description: data.description,
+            weight: data.weight,
+            imgUrl: imgURL,
+            price: data.price,
+            key: data.key
+        }
+        console.log(data)
         fetch('http://localhost:5000/addProduct', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify(product)
+            body: JSON.stringify(productData)
         })
+        .then(res => console.log('server side response'))
     }
 
     return (
         <div className="container">
-            <div className="row mb-5 justify-content-center">
+            <form className="" action="" onSubmit={handleSubmit(onSubmit)}>
+                <input className="form-control col-md-5" name="title" defaultValue="" ref={register} />
+                <br />
+                <input className="form-control col-md-5" name="description" defaultValue="" ref={register} />
+                <br />
+                <input className="form-control col-md-5" name="price" defaultValue="" ref={register} />
+                <br />
+                <input className="form-control col-md-5" name="weight" defaultValue="" ref={register} />
+                <br />
+                <input className="form-control col-md-5" name="key" defaultValue="" ref={register} />
+                <br />
+                <input className="form-control col-md-5" name="imgUrl" type="file" onChange={handleImageUpload} />
+                <br />
+                <button className="btn btn-success" type="submit">Save</button>
+            </form>
+        </div>
+    );
+};
+
+export default Admin;
+
+
+
+
+// working code
+{/* <div className="row mb-5 justify-content-center">
                 <div className="col-md-5">
-                    <form action="/addProduct">
+                    <form action="">
                         <label for="" className="col-form-label"><b>Product Name</b></label>
                         <input className="form-control" type="text" placeholder="Enter Name" name="title" aria-label="default input example" />
                     </form>
@@ -45,12 +96,32 @@ const Admin = () => {
             </div>
             <div className="container text-right">
                 <button className="btn btn-success" onClick={handleAddProduct}>Save</button>
-            </div>
-        </div>
-    );
-};
+            </div> */}
 
-export default Admin;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // first code
 
