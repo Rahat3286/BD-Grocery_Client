@@ -65,13 +65,6 @@ const Home = () => {
                     ></Product>)
                 }
             </div>
-            {/* <div className="cart-container">
-                <Cart cart={cart}>
-                    <Link to="/review">
-                        <button className="main-button">Review Order</button>
-                    </Link>
-                </Cart>
-            </div> */}
         </div>
     );
 };

@@ -5,8 +5,7 @@ import { Link } from 'react-router-dom';
 
 const Product = (props) => {
     console.log(props);
-    const { title, description, weight, imgUrl, price, key } = props.product;
-    // const { img, name, seller, stock, tile, description, weight, imgUrl, price, key} = props.product;
+    const { description, weight, imgUrl, price } = props.product;
     return (
         <div className="col-md-4 d-flex justify-content-center mb-3">
             <div className="card" style={{ width: '18rem' }}>
@@ -33,27 +32,6 @@ const Product = (props) => {
 };
 
 export default Product;
-
-{/* <div className="product">
-    <div>
-        <img src={imgUrl} alt="" />
-    </div>
-    <div>
-        <h4 className="product-name"><Link to={"/product/" + key}>{title}</Link></h4>
-        <br />
-        <p>{description}</p>
-        <p>Price: ${price}</p>
-        <p>Weight: {weight}</p>
-        {props.showAddToCart === true && <Link to="/review">
-            <button
-                className="btn btn-success"
-                onClick={() => props.handleAddProduct(props.product)}
-            >
-                <FontAwesomeIcon icon={faShoppingCart} /> BUY NOW
-                    </button>
-        </Link>}
-    </div>
-</div> */}
 
 
 

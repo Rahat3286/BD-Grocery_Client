@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { getDatabaseCart, removeFromDatabaseCart, processOrder } from '../../utilities/databaseManager';
+import { getDatabaseCart, removeFromDatabaseCart } from '../../utilities/databaseManager';
 import OrderedItem from '../OrderedItem/OrderedItem';
 import Cart from '../Cart/Cart';
 import { useHistory } from 'react-router-dom';
@@ -8,7 +8,6 @@ import { faTrash } from '@fortawesome/free-solid-svg-icons';
 
 const Order = () => {
     const [cart, setCart] = useState([]);
-    const [orderPlaced, setOrderPlaced] = useState(false);
     const history = useHistory();
 
     const handleProceedCheckout = () => {

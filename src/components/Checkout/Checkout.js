@@ -10,7 +10,6 @@ const Checkout = () => {
   const { register, handleSubmit, watch, errors } = useForm();
   const [loggedInUser, setLoggedInUser] = useContext(UserContext);
   const onSubmit = data => {
-    // console.log('form submitted', data)
     const savedCart = getDatabaseCart();
     const orderDetails = { ...loggedInUser, products: savedCart, checkout: data, orderTime: new Date() };
 
@@ -31,8 +30,6 @@ const Checkout = () => {
       })
   };
 
-  // console.log(watch("example")); // watch input value by passing the name of it
-
   return (
     <div className="container d-flex justify-content-center text-center">
       <form className="checkout-form" onSubmit={handleSubmit(onSubmit)}>
@@ -49,7 +46,6 @@ const Checkout = () => {
         {errors.phone && <span className="error">Phone Number is required</span>}
 
         <button className="btn btn-success mt-4">Place Order</button>
-        {/* <input className="btn btn-primary" type="submit" /> */}
       </form>
     </div>
   );

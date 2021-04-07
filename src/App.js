@@ -25,8 +25,6 @@ function App(props) {
   return (
     <UserContext.Provider value = {[loggedInUser, setLoggedInUser]}>
       <div className="container">
-        {/* <h1 className="text-center">ema-john-with-auth</h1> */}
-        {/* <h3 className="text-center">Name: {loggedInUser.name}</h3> */}
       </div>
       <Router>
         <Header></Header>
@@ -34,27 +32,18 @@ function App(props) {
           <Route path="/home">
             <Home/>
           </Route>
-          {/* <PrivateRoute path="/order">
+          <PrivateRoute path="/order">
             <Order/>
-          </PrivateRoute> */}
-          <Route path="/order">
-            <Order/>
-          </Route>
-          {/* <PrivateRoute path="/admin">
+          </PrivateRoute>
+          <PrivateRoute path="/admin">
             <Admin/>
-          </PrivateRoute> */}
-          <Route path="/admin">
-            <Admin/>
-          </Route>
+          </PrivateRoute>
           <Route path="/login">
             <Login></Login>
           </Route>
-          {/* <PrivateRoute path="/checkout">
+          <PrivateRoute path="/checkout">
             <Checkout/>
-          </PrivateRoute> */}
-          <Route path="/checkout">
-            <Checkout />
-          </Route>
+          </PrivateRoute>
           <Route exact path="/">
             <Home/>
           </Route>

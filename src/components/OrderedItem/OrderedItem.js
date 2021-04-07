@@ -1,8 +1,7 @@
 import React from 'react';
 
 const OrderedItem = (props) => {
-    // console.log(props);
-    const { description, price, quantity, title, weight, imgUrl, key, name } = props.product;
+    const { description, price, quantity, key} = props.product;
 
     return (
         <div className="container col-md-12 d-flex justify-content-between border-bottom ">
