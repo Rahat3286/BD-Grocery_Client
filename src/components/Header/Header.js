@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useContext } from 'react';
 import { UserContext } from '../../App';
+import brandImage from '../../images/bd grocery brand image.jpeg'
 
 
 
@@ -9,7 +10,7 @@ const Header = () => {
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
     return (
         <nav className="container navbar navbar-expand-lg navbar-light bg-transparent mb-5">
-            <Link to="/home"></Link>
+            <Link to="/home" className="navbar-brand"> <img src={brandImage} alt="" width="30" height="30" class="d-inline-block align-text-top" /> <span style={{fontSize:'0.6rem'}}>BD GROCERY</span> </Link>
             <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span className="navbar-toggler-icon"></span>
             </button>
